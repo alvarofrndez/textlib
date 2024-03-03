@@ -42,7 +42,7 @@ export const functionsStore = defineStore('functions', () => {
     let result = ''
 
     if(text2 != ''){
-      // comparar textos
+      result = compare(text, text2)
     }else{
       switch(selected_option.value){
         case 'uppercase':
@@ -61,6 +61,14 @@ export const functionsStore = defineStore('functions', () => {
     }
 
     return result
+  }
+
+  function compare(text, text2){
+    // TODO: sacar las diferencias de los textos en otro color
+    if(text == text2)
+      return 'textos iguales'
+    else
+      return 'textos distintos'
   }
 
   function uppercase(text){
