@@ -70,9 +70,15 @@
             <h3>Resultado</h3>
             <ResultComponent :result='result'/>
             <div class='actions'>
-                <button @click='reset'>Vaciar</button>
-                <button>Extraer a fichero</button>
-                <button @click='copy'>Copiar</button>
+                <button @click='reset' title='Extraer a fichero'>
+                    <img src='/src/assets/images/download.svg' alt='extraer'>
+                </button>
+                <button @click='reset' title='Borrar datos'>
+                    <img src='/src/assets/images/erase.svg' alt='borrar'>
+                </button>
+                <button @click='copy' title='Copiar'>
+                    <img src='/src/assets/images/copy.svg' alt='copiar'>
+                </button>
             </div>
         </section>
     
@@ -154,16 +160,22 @@
 
                 button{
                     // size
-                    height: 60%;
-                    
-                    // margin
-                    padding: .5rem;
+                    height: 30px;
 
+                    // display
+                    @include flex();
+                    
                     // decoration
                     border-radius: 15px;
                     border: none;
                     background-color: $h-c-white-dark;
                     cursor: pointer;
+
+                    img{
+                        // size
+                        width: 15px;
+                        height: 15px;
+                    }
                 }
             }
         }

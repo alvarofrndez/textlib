@@ -42,6 +42,9 @@
                 // size
                 width: 100%;
                 height: 100%;
+
+                // decoration
+                cursor: pointer;
             }
 
         }
