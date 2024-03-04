@@ -6,3 +6,11 @@
     gap: $gap;
     flex-wrap: $wrap;
 }
+
+@mixin button(){
+    // decoration
+    border-radius: 15px;
+    border: none;
+    background-color: $h-c-white-dark;
+    cursor: pointer;
+}

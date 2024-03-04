@@ -1,5 +1,5 @@
 <script setup>
-  import { RouterLink, RouterView } from 'vue-router'
+  import { RouterView } from 'vue-router'
   import { toastStore } from '@/stores/toast.js'
   import ToastComponent from '@/components/ToastComponent.vue'
 
