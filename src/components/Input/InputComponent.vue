@@ -33,6 +33,37 @@
         s_functions.selected_option = ''
     }
 
+    function fileSelected(e){
+        let file = e.target.files[0]
+
+        readFile(file, text)
+        
+    }
+
+    function fileSelectedText2(e){
+        let file = e.target.files[0]
+
+        readFile(file, text2)
+    }
+
+    function readFile(file, text){
+        if(file){
+            let reader = new FileReader()
+
+            reader.onload = function(e) {
+                text.value = e.target.result
+            }
+            
+            reader.readAsText(file)
+        }else{
+            toast_s.show('No existe el archivo', 'error')
+        }
+    }
+
+    function exportToFile(){
+        
+    }
+
     function copy(){
         navigator.clipboard.writeText(result.value)
         .then(() => {
@@ -52,13 +83,13 @@
             <h3 v-if="s_functions.selected_option == 'compare'">Texto a comparar 1</h3>
             <h3 v-else>Texto a convertir</h3>
             <textarea rows='10' cols='50' v-model='text' placeholder='Introduce el texto...'></textarea>
-            <input type='file' class='file' name='' id=''>
+            <input type='file' class='file' name='' id='' @change='(e) =>fileSelected(e)'>
         </section>
 
         <section v-if="s_functions.selected_option == 'compare'" class='container-input'>
             <h3>Texto a comparar 2</h3>
             <textarea rows='10' cols='50' v-model='text2' placeholder='Introduce el texto...'></textarea>
-            <input type='file' class='file' name='' id=''>
+            <input type='file' class='file' name='' id='' @change='(e) =>fileSelectedText2(e)'>
         </section>
         
         <section class='container-dropbox'>
@@ -70,7 +101,7 @@
             <h3>Resultado</h3>
             <ResultComponent :result='result'/>
             <div class='actions'>
-                <button @click='reset' title='Extraer a fichero'>
+                <button @click='exportToFile' title='Extraer a fichero'>
                     <img src='/src/assets/images/download.svg' alt='extraer'>
                 </button>
                 <button @click='reset' title='Borrar datos'>

@@ -80,13 +80,14 @@ export const functionsStore = defineStore('functions', () => {
   }
 
   function camelcase(text){
+    // TODO: respetar todos los espacios
     let words = text.split(/[\s_-]+/);
 
     for (var i = 1; i < words.length; i++) {
       words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
     }
 
-    return words.join('');
+    return words.join(' ');
   }
 
   function capitalletter(text){

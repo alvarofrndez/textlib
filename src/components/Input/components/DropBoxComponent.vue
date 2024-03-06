@@ -23,21 +23,6 @@
     @import '@/assets/style.scss';
 
     select{
-        // decoration
-        background-color: $h-c-white;
-        border-radius: 5px;
-        border: 1px solid $h-c-black;
-        outline: none;
-
-        option{
-            // decoration
-            background-color: $h-c-white;
-            border: 1px solid $h-c-gray;
-            border-radius: 5px;
-
-            &:hover{
-                background-color: $h-c-gray-light !important;
-            }
-        }
+        @include dropbox();
     }
 </style>

@@ -15,8 +15,8 @@ body{
         *{
             // decoration
             color: $h-c-black;
-            font-size: $h-f-text;
-            font-family: Arial;
+            font-size: $h-s-text;
+            font-family: $h-f-monserrat;
         }
 
         h1, h2, h3, h4{
@@ -27,24 +27,33 @@ body{
 
         h1{
             // decoration
-            font-size: $h-f-text-title;
+            font-size: $h-s-text-title;
         }
 
         h2{
             // decoration
-            font-size: $h-f-text-subtitle;
+            font-size: $h-s-text-subtitle;
         }
 
 
         h3{
             // decoration
-            font-size: $h-f-text-big;
+            font-size: $h-s-text-big;
         }
 
 
         a{
             // decoration
             text-decoration: none;
+        }
+
+        ul{
+            // maring
+            padding: 0;
+            margin: 0;
+
+            // decoration
+            list-style: none;
         }
     }
 }
