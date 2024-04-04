@@ -2,12 +2,14 @@
     import { ref } from 'vue'
     import { functionsStore } from '@/stores/functions'
     import { toastStore } from '@/stores/toast.js'
+    import { modalStore } from '@/stores/modal.js'
     import DropBoxComponent from './components/DropBoxComponent.vue'
     import ResultComponent from './components/ResultComponent.vue'
 
     // stores
     const s_functions = functionsStore()
     const toast_s = toastStore()
+    const modal_s = modalStore()
 
     // variables
     const text = ref('')
@@ -61,7 +63,8 @@
     }
 
     function exportToFile(){
-        
+        modal_s.showing = true
+        modal_s.component = 'info'
     }
 
     function copy(){
