@@ -14,6 +14,6 @@
     .main{
         // size
         width: 90%;
-        height: 50%;
+        height: 70%;
     }
 </style>

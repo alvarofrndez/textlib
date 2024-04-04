@@ -77,6 +77,21 @@
         })
 
     }
+
+    function executeClickFile(type){
+        /**
+         * Ejecuta el click en el input tipo file dependiendo del tipo
+         */
+        let element = type == 1 ? document.getElementsByClassName('file_input')[0] : document.getElementsByClassName('file_input')[1]
+        element.click()
+    }
+
+    document.addEventListener('keypress', (e) => {
+        if(e.key == 'Enter'){
+            e.preventDefault()
+            execute()
+        }
+    })
 </script>
 
 <template>
@@ -86,13 +101,24 @@
             <h3 v-if="s_functions.selected_option == 'compare'">Texto a comparar 1</h3>
             <h3 v-else>Texto a convertir</h3>
             <textarea rows='10' cols='50' v-model='text' placeholder='Introduce el texto...'></textarea>
-            <input type='file' class='file' name='' id='' @change='(e) =>fileSelected(e)'>
+            <input type='file' class='file_input ' name='' @change='(e) => fileSelected(e)'>
+            <div class='container-actions'>
+                <button class='reset-input-file'>reset</button>
+                <div class='file'>
+                    <img src='/src/assets/images/import_file.svg' title='importar archivo' @click="() => executeClickFile(1)"/>
+                </div>
+            </div>
         </section>
 
         <section v-if="s_functions.selected_option == 'compare'" class='container-input'>
             <h3>Texto a comparar 2</h3>
             <textarea rows='10' cols='50' v-model='text2' placeholder='Introduce el texto...'></textarea>
-            <input type='file' class='file' name='' id='' @change='(e) =>fileSelectedText2(e)'>
+            <input type='file' class='file_input' name='' @change='(e) =>fileSelectedText2(e)'>
+            <div class='container-actions'>
+                <div class='file'>
+                    <img src='/src/assets/images/import_file.svg' title='importar archivo' @click="() => executeClickFile(2)"/>
+                </div>
+            </div>
         </section>
         
         <section class='container-dropbox'>
@@ -104,7 +130,7 @@
             <h3>Resultado</h3>
             <ResultComponent :result='result'/>
             <div class='actions'>
-                <button @click='exportToFile' title='Extraer a fichero'>
+                <button v-if="result != ''" @click='exportToFile' title='Extraer a fichero'>
                     <img src='/src/assets/images/download.svg' alt='extraer'>
                 </button>
                 <button @click='reset' title='Borrar datos'>
@@ -136,52 +162,52 @@
             width: 25%;
             
             // display
-            @include flex(column, flex-start, center);
+            @include flex(column, flex-start, space-between);
 
             h3{
                 height: 10%;
             }
 
             textarea{
-                // size
-                width: calc(100% - .5rem * 2);
-                height: 80%;
-
-                // decoration
-                background-color: $h-c-white;
-                border-radius: 5px;
-                border: 1px solid $h-c-gray;
-                padding: .5rem;
-                outline: none;
-
-                &::placeholder {
-                    color: $h-c-gray-light;
-                }
-
-                &::-webkit-scrollbar{
-                    // size
-                    width: 10px;
-                }
-
-                &::-webkit-scrollbar-thumb{
-                    // decoration
-                    background-color: $h-c-white-dark;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
+                @include input-styles();
             }
 
-            .file{
-                // size
-                width: min-content;
-                height: 5%;
-
+            .container-actions{
                 // display
                 align-self: flex-end;
+                @include flex();
 
                 // decoration
                 margin-top: 5% !important;
-                cursor: pointer;
+
+                .reset-input-file{
+                    // display
+                    display: none;
+                }
+
+                .file{
+                    // size
+                    height: 30px;
+                    width: 30px;
+
+                    // display
+                    @include flex();
+
+                    // decoration
+                    border-radius: 50%;
+                    cursor: pointer;
+                    background-color: $h-c-white-dark;
+
+                    img{
+                        // size
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+
+            .file_input{
+                display: none;
             }
 
             .actions{
@@ -194,6 +220,7 @@
 
                 button{
                     // size
+                    width: 30px;
                     height: 30px;
 
                     // display

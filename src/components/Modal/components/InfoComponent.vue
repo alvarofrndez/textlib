@@ -1,14 +1,15 @@
 <script setup>
     import { modalStore } from '@/stores/modal.js'
+    import { ref } from 'vue'
 
     // stores
     const modal_s = modalStore()
     
     // variables
-    const file_name = ''
+    const file_name = ref('')
 
     function close(){
-        console.log(file_name)
+        console.log(file_name.value)
         modal_s.showing = false
         modal_s.component = ''
     }
@@ -26,6 +27,6 @@
     @import '@/assets/style.scss';
 
     .container{
-
+        @include flex(column, space-between, center, 2rem);
     }
 </style>
