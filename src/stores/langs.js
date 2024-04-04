@@ -1,91 +1,38 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import * as spanish from './langs-json/spanish'
+import * as english from './langs-json/english'
+import * as italian from './langs-json/italian'
+import * as portuguese from './langs-json/portuguese'
 
 export const langsStore = defineStore('langs', () => {
 
     let actual_lang = ref({
         text: 'Español',
         key: 'spain',
-        variables: {
-            route_information: 'información',
-            route_otra: 'otra',
-            choose_file_name: 'Escoja el nombre del archivo',
-            accept: 'Aceptar',
-            text_to_compare1: 'Texto a comparar 1',
-            text_to_compare2: 'Texto a comparar 2',
-            text_to_convert: 'Texto a convertir',
-            reset: 'Resetear',
-            execute: 'Ejecutar',
-            result: 'Resultado',
-            placeholder_input: 'Introduce el texto...'
-        }
+        variables: spanish.default
     })
 
     const langs = ref([
         {
             text: 'Español',
             key: 'spain',
-            variables: {
-                route_information: 'información',
-                route_otra: 'otra',
-                choose_file_name: 'Escoja el nombre del archivo',
-                accept: 'Aceptar',
-                text_to_compare1: 'Texto a comparar 1',
-                text_to_compare2: 'Texto a comparar 2',
-                text_to_convert: 'Texto a convertir',
-                reset: 'Resetear',
-                execute: 'Ejecutar',
-                result: 'Resultado',
-                placeholder_input: 'Introduce el texto...'
-            }
+            variables: spanish.default
         },
         {
             text: 'Inglés',
             key: 'english',
-            variables: {
-                route_information: "information",
-                route_otra: "another",
-                choose_file_name: "Choose file name",
-                accept: "Accept",
-                text_to_compare1: "Text to compare 1",
-                text_to_compare2: "Text to compare 2",
-                text_to_convert: "Text to convert",
-                reset: "Reset",
-                execute: "Execute",
-                result: "Result"
-            }
+            variables: english.default
         },
         {
             text: 'Italiano',
             key: 'italian',
-            variables: {
-                route_information: "informazione",
-                route_otra: "un altro",
-                choose_file_name: "Scegli il nome del file",
-                accept: "Accetta",
-                text_to_compare1: "Testo da confrontare 1",
-                text_to_compare2: "Testo da confrontare 2",
-                text_to_convert: "Testo da convertire",
-                reset: "Reset",
-                execute: "Esegui",
-                result: "Risultato"
-            }
+            variables: italian.default
         },
         {
             text: 'Portugues',
             key: 'portuguese',
-            variables: {
-                route_information: "informação",
-                route_otra: "outro",
-                choose_file_name: "Escolha o nome do arquivo",
-                accept: "Aceitar",
-                text_to_compare1: "Texto para comparar 1",
-                text_to_compare2: "Texto para comparar 2",
-                text_to_convert: "Texto para converter",
-                reset: "Redefinir",
-                execute: "Executar",
-                result: "Resultado"
-            }
+            variables: portuguese.default
         }
     ])
 

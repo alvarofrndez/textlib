@@ -1,35 +1,38 @@
 import { defineStore } from 'pinia'
 import { toastStore } from '@/stores/toast.js'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { langsStore } from './langs'
 
 export const functionsStore = defineStore('functions', () => {
 
   // stores
   const toast_s = toastStore()
+  const langs_s = langsStore()
 
   // variables
-  const options = [
+  const options = computed (() =>[
     {
       value: 'compare',
-      text: 'comparar'
+      text: langs_s.actual_lang.variables.dropbox_options.compare
     },
     {
       value: 'uppercase',
-      text: 'a mayusculas'
+      text: langs_s.actual_lang.variables.dropbox_options.uppercase
     },
     {
       value: 'lowercase',
-      text: 'a minisculas'
+      text: langs_s.actual_lang.variables.dropbox_options.lowercase
     },
     {
       value: 'camelcase',
-      text: 'a camelcase'
+      text: langs_s.actual_lang.variables.dropbox_options.camelcase
     },
     {
       value: 'capitalletter',
-      text: 'a capital letter'
+      text: langs_s.actual_lang.variables.dropbox_options.capitalletter
     },
-  ]
+  ])
+
   const selected_option = ref('')
 
   // functions
