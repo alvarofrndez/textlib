@@ -63,6 +63,9 @@
     }
 
     function exportToFile(){
+        modal_s.data = {
+            content : result.value
+        }
         modal_s.showing = true
         modal_s.component = 'info'
     }

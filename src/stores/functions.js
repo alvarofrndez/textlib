@@ -93,5 +93,25 @@ export const functionsStore = defineStore('functions', () => {
   function capitalletter(text){
     return text.replace(/\b\w/g, function(l) { return l.toUpperCase() });
   }
-  return { options, selected_option, execute }
+
+  function downloadFile(content, file_name){
+    /**
+     * Crea un enlace de descarga con el contenido y nombre del
+     * fichero
+     */
+    const blob = new Blob([content], { type: 'text/plain' });
+        
+    const download_url = document.createElement('a');
+    download_url.href = window.URL.createObjectURL(blob);
+    download_url.download = file_name;
+    
+    download_url.style.display = 'none';
+    document.body.appendChild(download_url);
+    
+    download_url.click();
+    
+    document.body.removeChild(download_url);
+  }
+
+  return { options, selected_option, execute, downloadFile }
 })

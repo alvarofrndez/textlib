@@ -1,15 +1,18 @@
 <script setup>
-    import { modalStore } from '@/stores/modal.js'
+    import { functionsStore } from '@/stores/functions';
+import { modalStore } from '@/stores/modal.js'
     import { ref } from 'vue'
 
     // stores
     const modal_s = modalStore()
+    const functions_s = functionsStore()
     
     // variables
     const file_name = ref('')
 
     function close(){
-        console.log(file_name.value)
+        functions_s.downloadFile(modal_s.data.content, file_name.value)
+        modal_s.resetData()
         modal_s.showing = false
         modal_s.component = ''
     }

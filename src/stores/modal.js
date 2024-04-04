@@ -5,7 +5,12 @@ export const modalStore = defineStore('modal', () => {
 
     let showing = ref(false)
     let component = ref('')
+    let data = ref({})
+
+    function resetData(){
+        data.value = {}
+    }
 
     
-    return{ showing, component }
+    return{ showing, component, resetData }
 })
