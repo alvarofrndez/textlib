@@ -1,25 +1,17 @@
 <script setup>
+    import { langsStore } from '@/stores/langs.js'
 
-    const langs = [
-        {
-            text: 'Español',
-            value: 'spain'
-        },
-        {
-            text: 'Inglés',
-            value: 'english'
-        },
-        {
-            text: 'Italiano',
-            value: 'italian'
-        }
-    ]
+    const langs_s = langsStore()
+
+    function changeLang(e){
+        langs_s.changeLang(e.target.value)
+    }
 </script>
 
 <template>
     <li>
-        <select name='lang' id='lang'>
-            <option v-for='lang of langs' value='lang.value'>
+        <select name='lang' id='lang' @change='(e) => changeLang(e)'>
+            <option v-for='lang of langs_s.langs' :value='lang.key' >
                 {{ lang.text }}
             </option>
         </select>

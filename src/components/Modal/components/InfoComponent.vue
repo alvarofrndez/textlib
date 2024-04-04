@@ -1,11 +1,13 @@
 <script setup>
     import { functionsStore } from '@/stores/functions';
-import { modalStore } from '@/stores/modal.js'
+    import { langsStore } from '@/stores/langs';
+    import { modalStore } from '@/stores/modal.js'
     import { ref } from 'vue'
 
     // stores
     const modal_s = modalStore()
     const functions_s = functionsStore()
+    const langs_s = langsStore()
     
     // variables
     const file_name = ref('')
@@ -20,9 +22,9 @@ import { modalStore } from '@/stores/modal.js'
 
 <template>
     <section class='container'>
-        <label for='input_name'>Escoja el nombre del archivo</label>
+        <label for='input_name'>{{ langs_s.actual_lang.variables.choose_file_name }}</label>
         <input type='text' name='input_name' v-model='file_name'>
-        <button @click='close'>Aceptar</button>
+        <button @click='close'>{{ langs_s.actual_lang.variables.accept }}</button>
     </section>
 </template>
 

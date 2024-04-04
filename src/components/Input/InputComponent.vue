@@ -3,6 +3,7 @@
     import { functionsStore } from '@/stores/functions'
     import { toastStore } from '@/stores/toast.js'
     import { modalStore } from '@/stores/modal.js'
+    import { langsStore } from '@/stores/langs'
     import DropBoxComponent from './components/DropBoxComponent.vue'
     import ResultComponent from './components/ResultComponent.vue'
 
@@ -10,6 +11,7 @@
     const s_functions = functionsStore()
     const toast_s = toastStore()
     const modal_s = modalStore()
+    const langs_s = langsStore()
 
     // variables
     const text = ref('')
@@ -101,12 +103,12 @@
     <section class='container-inputs'>
 
         <section class='container-input'>
-            <h3 v-if="s_functions.selected_option == 'compare'">Texto a comparar 1</h3>
-            <h3 v-else>Texto a convertir</h3>
-            <textarea rows='10' cols='50' v-model='text' placeholder='Introduce el texto...'></textarea>
+            <h3 v-if="s_functions.selected_option == 'compare'">{{ langs_s.actual_lang.variables.text_to_compare1 }}</h3>
+            <h3 v-else>{{ langs_s.actual_lang.variables.text_to_convert }}</h3>
+            <textarea rows='10' cols='50' v-model='text' :placeholder='langs_s.actual_lang.variables.placeholder_input'></textarea>
             <input type='file' class='file_input ' name='' @change='(e) => fileSelected(e)'>
             <div class='container-actions'>
-                <button class='reset-input-file'>reset</button>
+                <button class='reset-input-file'>{{ langs_s.actual_lang.variables.reset }}</button>
                 <div class='file'>
                     <img src='/src/assets/images/import_file.svg' title='importar archivo' @click="() => executeClickFile(1)"/>
                 </div>
@@ -114,7 +116,7 @@
         </section>
 
         <section v-if="s_functions.selected_option == 'compare'" class='container-input'>
-            <h3>Texto a comparar 2</h3>
+            <h3>{{ langs_s.actual_lang.variables.text_to_compare2 }}</h3>
             <textarea rows='10' cols='50' v-model='text2' placeholder='Introduce el texto...'></textarea>
             <input type='file' class='file_input' name='' @change='(e) =>fileSelectedText2(e)'>
             <div class='container-actions'>
@@ -126,11 +128,11 @@
         
         <section class='container-dropbox'>
             <DropBoxComponent/>
-            <button @click='execute'>Ejecutar</button>
+            <button @click='execute'>{{ langs_s.actual_lang.variables.execute }}</button>
         </section>
         
         <section class='container-input'>
-            <h3>Resultado</h3>
+            <h3>{{ langs_s.actual_lang.variables.result }}</h3>
             <ResultComponent :result='result'/>
             <div class='actions'>
                 <button v-if="result != ''" @click='exportToFile' title='Extraer a fichero'>

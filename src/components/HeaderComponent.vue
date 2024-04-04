@@ -1,6 +1,8 @@
 <script setup>
     import LangSelectComponent from '@/components/LangSelectComponent.vue';
+    import { langsStore } from '@/stores/langs';
 
+    const langs_s = langsStore()
 </script>
 
 <template>
@@ -11,8 +13,8 @@
             </div>
             <nav class='container-nav'>
                 <ul>
-                    <li class='hover'>información</li>
-                    <li class='hover'>otrososo</li>
+                    <li class='hover'>{{ langs_s.actual_lang.variables.route_information }}</li>
+                    <li class='hover'>{{ langs_s.actual_lang.variables.route_otra }}</li>
                     <LangSelectComponent/>
                 </ul>
                 <div class='container-info'>
