@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 export const toastStore = defineStore('toast', () => {
 
-    let text = ref('dasdas')
+    let text = ref('')
     let icon = ref('')
     let showing = ref(false)
 

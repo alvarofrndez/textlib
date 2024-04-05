@@ -1,1 +1,26 @@
-$h-c-white: #fff
+// colors
+
+    $h-c-white: #F7F7F8;
+    $h-c-white-dark: #DEDDE2;
+    $h-c-black: #0A0619;
+    $h-c-gray: #8E8D94;
+    $h-c-gray-light: #CDCDCD;
+
+
+// fonts
+
+    @font-face {
+        font-family: 'Monserrat';
+        src: url('/src/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') 
+    }
+    
+    $h-f-monserrat: 'Monserrat';
+    
+    $h-s-text-title: 40px;
+    $h-s-text-subtitle: 32px;
+    $h-s-text-big: 24px;
+    $h-s-text-medium: 20px;
+    $h-s-text: 16px;
+    $h-s-text-small: 14px;
+
+    

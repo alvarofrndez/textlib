@@ -1,8 +1,10 @@
 <script setup>
     import { functionsStore } from '@/stores/functions'
 
+    // stores
     const s_functions = functionsStore()
 
+    // functions
     function setOption(e){
         s_functions.selected_option = e.target.value
     }
@@ -19,4 +21,8 @@
 
 <style lang='scss' scoped>
     @import '@/assets/style.scss';
+
+    select{
+        @include dropbox();
+    }
 </style>

@@ -6,3 +6,60 @@
     gap: $gap;
     flex-wrap: $wrap;
 }
+
+@mixin button(){
+    // decoration
+    border-radius: 15px;
+    border: none;
+    background-color: $h-c-white-dark;
+    cursor: pointer;
+}
+
+@mixin dropbox(){
+    // decoration
+    background-color: $h-c-white;
+    border-radius: 5px;
+    border: 1px solid $h-c-black;
+    outline: none;
+    cursor: pointer;
+
+    option{
+        // decoration
+        background-color: $h-c-white;
+        border: 1px solid $h-c-gray;
+        border-radius: 5px;
+
+        &:hover{
+            background-color: $h-c-gray-light !important;
+        }
+    }
+}
+
+@mixin input-styles(){
+    // size
+    width: calc(100% - .5rem * 2);
+    height: 70%;
+
+    // decoration
+    background-color: $h-c-white;
+    border-radius: 5px;
+    border: 1px solid $h-c-gray;
+    padding: .5rem;
+    outline: none;
+
+    &::placeholder {
+        color: $h-c-gray-light;
+    }
+
+    &::-webkit-scrollbar{
+        // size
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        // decoration
+        background-color: $h-c-white-dark;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
