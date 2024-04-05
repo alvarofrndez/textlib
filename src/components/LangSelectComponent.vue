@@ -6,12 +6,14 @@
     function changeLang(e){
         langs_s.changeLang(e.target.value)
     }
+
+    langs_s.changeLang(langs_s.getLangPreference())
 </script>
 
 <template>
     <li>
         <select name='lang' id='lang' @change='(e) => changeLang(e)'>
-            <option v-for='lang of langs_s.langs' :value='lang.key' >
+            <option v-for='lang of langs_s.langs' :value='lang.key' :selected='lang.key == langs_s.actual_lang.key ? true : false'>
                 {{ lang.text }}
             </option>
         </select>

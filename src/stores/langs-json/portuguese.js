@@ -21,7 +21,8 @@ export default {
         spanish: 'Espanhol',
         english: 'Inglês',
         italian: 'Italiano',
-        portuguese: 'Português'
+        portuguese: 'Português',
+        german: 'alemão'
     },
     title_options:{
         import_file: 'Importar arquivo',
