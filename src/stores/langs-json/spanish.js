@@ -16,5 +16,21 @@ export default {
         lowercase: 'a mayúsculas',
         camelcase: 'a camelcase',
         capitalletter: 'a capital letter'
+    },
+    langs_options:{
+        spanish: 'Español',
+        english: 'Inglés',
+        italian: 'Italiano',
+        portuguese: 'Potugués'
+    },
+    title_options:{
+        import_file: 'importar archivo',
+        download_file: 'extraer a fichero',
+        clear_inputs: 'borrar datos',
+        copy: 'copiar'
+    },
+    compare_text_results:{
+        equals: 'textos iguales',
+        distincts: 'textos distintos'
     }
 }

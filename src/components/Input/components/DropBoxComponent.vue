@@ -7,7 +7,6 @@
     // functions
     function setOption(e){
         s_functions.selected_option = e.target.value
-        console.log(s_functions.options)
     }
 </script>
 

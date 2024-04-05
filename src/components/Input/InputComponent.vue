@@ -97,6 +97,7 @@
             execute()
         }
     })
+
 </script>
 
 <template>
@@ -109,8 +110,8 @@
             <input type='file' class='file_input ' name='' @change='(e) => fileSelected(e)'>
             <div class='container-actions'>
                 <button class='reset-input-file'>{{ langs_s.actual_lang.variables.reset }}</button>
-                <div class='file'>
-                    <img src='/src/assets/images/import_file.svg' title='importar archivo' @click="() => executeClickFile(1)"/>
+                <div class='file' :title='langs_s.actual_lang.variables.title_options.import_file'>
+                    <img src='/src/assets/images/import_file.svg' @click="() => executeClickFile(1)"/>
                 </div>
             </div>
         </section>
@@ -120,8 +121,8 @@
             <textarea rows='10' cols='50' v-model='text2' placeholder='Introduce el texto...'></textarea>
             <input type='file' class='file_input' name='' @change='(e) =>fileSelectedText2(e)'>
             <div class='container-actions'>
-                <div class='file'>
-                    <img src='/src/assets/images/import_file.svg' title='importar archivo' @click="() => executeClickFile(2)"/>
+                <div class='file' :title='langs_s.actual_lang.variables.title_options.import_file'>
+                    <img src='/src/assets/images/import_file.svg' @click="() => executeClickFile(2)"/>
                 </div>
             </div>
         </section>
@@ -135,13 +136,13 @@
             <h3>{{ langs_s.actual_lang.variables.result }}</h3>
             <ResultComponent :result='result'/>
             <div class='actions'>
-                <button v-if="result != ''" @click='exportToFile' title='Extraer a fichero'>
+                <button v-if="result != ''" @click='exportToFile' :title='langs_s.actual_lang.variables.title_options.download_file'>
                     <img src='/src/assets/images/download.svg' alt='extraer'>
                 </button>
-                <button @click='reset' title='Borrar datos'>
+                <button @click='reset' :title='langs_s.actual_lang.variables.title_options.clear_inputs'>
                     <img src='/src/assets/images/erase.svg' alt='borrar'>
                 </button>
-                <button @click='copy' title='Copiar'>
+                <button @click='copy' :title='langs_s.actual_lang.variables.title_options.copy'>
                     <img src='/src/assets/images/copy.svg' alt='copiar'>
                 </button>
             </div>

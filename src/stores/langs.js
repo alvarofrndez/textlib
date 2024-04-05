@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import * as spanish from './langs-json/spanish'
 import * as english from './langs-json/english'
 import * as italian from './langs-json/italian'
@@ -13,24 +13,24 @@ export const langsStore = defineStore('langs', () => {
         variables: spanish.default
     })
 
-    const langs = ref([
+    const langs = computed( () =>[
         {
-            text: 'Español',
+            text: actual_lang.value.variables.langs_options.spanish,
             key: 'spain',
             variables: spanish.default
         },
         {
-            text: 'Inglés',
+            text: actual_lang.value.variables.langs_options.english,
             key: 'english',
             variables: english.default
         },
         {
-            text: 'Italiano',
+            text: actual_lang.value.variables.langs_options.italian,
             key: 'italian',
             variables: italian.default
         },
         {
-            text: 'Portugues',
+            text: actual_lang.value.variables.langs_options.portuguese,
             key: 'portuguese',
             variables: portuguese.default
         }

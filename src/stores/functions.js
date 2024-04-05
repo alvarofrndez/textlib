@@ -69,9 +69,9 @@ export const functionsStore = defineStore('functions', () => {
   function compare(text, text2){
     // TODO: sacar las diferencias de los textos en otro color
     if(text == text2)
-      return 'textos iguales'
+      return langs_s.actual_lang.variables.compare_text_results.equals
     else
-      return 'textos distintos'
+      return langs_s.actual_lang.variables.compare_text_results.distincts
   }
 
   function uppercase(text){
