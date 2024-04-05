@@ -26,7 +26,7 @@
             else
                 result.value = s_functions.execute(text.value)
         }else{
-            toast_s.show('el texto está vacío', 'info')
+            toast_s.show(langs_s.actual_lang.variables.toast_options.empty_text, 'info')
         }
     }
 
@@ -60,7 +60,7 @@
             
             reader.readAsText(file)
         }else{
-            toast_s.show('No existe el archivo', 'error')
+            toast_s.show(langs_s.actual_lang.variables.toast_options.file_not_found, 'error')
         }
     }
 
@@ -75,10 +75,10 @@
     function copy(){
         navigator.clipboard.writeText(result.value)
         .then(() => {
-            toast_s.show('Texto copiado', 'success')
+            toast_s.show(langs_s.actual_lang.variables.toast_options.copy_text, 'success')
         })
         .catch(err => {
-            toast_s.show('Error al copiar', 'error')
+            toast_s.show(langs_s.actual_lang.variables.toast_options.copy_text_error, 'error')
         })
 
     }

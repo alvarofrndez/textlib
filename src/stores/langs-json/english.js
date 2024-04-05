@@ -33,5 +33,11 @@ export default {
     compare_text_results:{
         equals: 'Equal texts',
         distincts: 'Distinct texts'
+    },
+    toast_options:{
+        file_not_found: 'File not found',
+        copy_text: 'Text copied',
+        copy_text_error: 'Error copying text',
+        empty_text: 'Text is empty'
     }
 }
