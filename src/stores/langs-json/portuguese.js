@@ -15,14 +15,16 @@ export default {
         uppercase: 'para minúsculas',
         lowercase: 'para maiúsculas',
         camelcase: 'para camelcase',
-        capitalletter: 'para letra maiúscula'
+        capitalletter: 'para letra maiúscula',
+        encode: 'codificar',
+        decode: 'decodificar'
     },
     langs_options:{
         spanish: 'Espanhol',
         english: 'Inglês',
         italian: 'Italiano',
         portuguese: 'Português',
-        german: 'alemão'
+        german: 'alemão',
     },
     title_options:{
         import_file: 'Importar arquivo',

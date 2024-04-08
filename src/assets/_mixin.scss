@@ -46,6 +46,7 @@
     border: 1px solid $h-c-gray;
     padding: .5rem;
     outline: none;
+    overflow-wrap:break-word;
 
     &::placeholder {
         color: $h-c-gray-light;

@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { toastStore } from '@/stores/toast.js'
 import { ref, computed } from 'vue'
 import { langsStore } from './langs'
+import CryptoJS from 'crypto-js'
 
 export const functionsStore = defineStore('functions', () => {
 
@@ -31,9 +32,18 @@ export const functionsStore = defineStore('functions', () => {
       value: 'capitalletter',
       text: langs_s.actual_lang.variables.dropbox_options.capitalletter
     },
+    {
+      value: 'encode',
+      text: langs_s.actual_lang.variables.dropbox_options.encode
+    },
+    {
+      value: 'decode',
+      text: langs_s.actual_lang.variables.dropbox_options.decode
+    },
   ])
 
   const selected_option = ref('')
+  const KEY_ENCODE = 'jafh78asfuasf87asfuasdf8asdf'
 
   // functions
   function execute(text, text2 = ''){
@@ -58,8 +68,14 @@ export const functionsStore = defineStore('functions', () => {
           result = camelcase(text)
           break
         case 'capitalletter':
-            result = capitalletter(text)
-            break
+          result = capitalletter(text)
+          break
+        case 'encode':
+          result = encode(text)
+          break
+        case 'decode':
+          result = decode(text)
+          break
       }
     }
 
@@ -95,6 +111,14 @@ export const functionsStore = defineStore('functions', () => {
 
   function capitalletter(text){
     return text.replace(/\b\w/g, function(l) { return l.toUpperCase() });
+  }
+
+  function encode(text){
+    return CryptoJS.AES.encrypt(text, KEY_ENCODE).toString()
+  }
+
+  function decode(text){
+    return CryptoJS.AES.decrypt(text, KEY_ENCODE).toString(CryptoJS.enc.Utf8)
   }
 
   function downloadFile(content, file_name){
