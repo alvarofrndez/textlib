@@ -10,6 +10,8 @@ export default {
     execute: 'Ejecutar',
     result: 'Resultado',
     placeholder_input: 'Introduce el texto...',
+    text_to_replace: 'Texto a reemplazar',
+    replace_text: 'Texto de reemplazo',
     dropbox_options:{
         compare: 'comparar',
         uppercase: 'a minúsculas',
@@ -17,7 +19,8 @@ export default {
         camelcase: 'a camelcase',
         capitalletter: 'a capital letter',
         encode: 'codificar',
-        decode: 'descodificar'
+        decode: 'descodificar',
+        replace: 'reemplazar',
     },
     langs_options:{
         spanish: 'Español',
@@ -40,6 +43,7 @@ export default {
         file_not_found: 'No existe el archivo',
         copy_text: 'Texto copiado',
         copy_text_error: 'Error al copiar el texto',
-        empty_text: 'El texto está vacío'
+        empty_text: 'El texto está vacío',
+        error_replace_text: 'Ha ocurrido un error con los datos',
     }
 }

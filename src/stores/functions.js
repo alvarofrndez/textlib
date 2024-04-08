@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { toastStore } from '@/stores/toast.js'
+import { modalStore } from './modal'
 import { ref, computed } from 'vue'
 import { langsStore } from './langs'
 import CryptoJS from 'crypto-js'
@@ -9,6 +10,7 @@ export const functionsStore = defineStore('functions', () => {
   // stores
   const toast_s = toastStore()
   const langs_s = langsStore()
+  const modal_s = modalStore()
 
   // variables
   const options = computed (() =>[
@@ -39,6 +41,10 @@ export const functionsStore = defineStore('functions', () => {
     {
       value: 'decode',
       text: langs_s.actual_lang.variables.dropbox_options.decode
+    },
+    {
+      value: 'replace',
+      text: langs_s.actual_lang.variables.dropbox_options.replace
     },
   ])
 
@@ -75,6 +81,9 @@ export const functionsStore = defineStore('functions', () => {
           break
         case 'decode':
           result = decode(text)
+          break
+        case 'replace':
+          result = replace(text)
           break
       }
     }
@@ -119,6 +128,26 @@ export const functionsStore = defineStore('functions', () => {
 
   function decode(text){
     return CryptoJS.AES.decrypt(text, KEY_ENCODE).toString(CryptoJS.enc.Utf8)
+  }
+
+  function replace(text){
+    /**
+     * reemplaza todos las cadenas coincidentes en el text por el valor
+     * definido
+     */
+    let result_text = ''
+
+    if(modal_s.data.text_to_replace && modal_s.data.replace_text){
+      let escaped_text_to_replace = modal_s.data.text_to_replace.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      
+      let regex = new RegExp(escaped_text_to_replace, 'g');
+      
+      result_text = text.replace(regex, modal_s.data.replace_text);
+    }else{
+      toast_s.show(langs_s.actual_lang.variables.toast_options.error_replace_text, 'error')
+    }
+
+    return result_text
   }
 
   function downloadFile(content, file_name){

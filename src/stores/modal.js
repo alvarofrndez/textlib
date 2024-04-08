@@ -12,5 +12,5 @@ export const modalStore = defineStore('modal', () => {
     }
 
     
-    return{ showing, component, resetData }
+    return{ showing, component, data, resetData }
 })
