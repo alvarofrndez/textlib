@@ -10,6 +10,8 @@ export default {
     execute: 'Executar',
     result: 'Resultado',
     placeholder_input: 'Digite o texto...',
+    text_to_replace: 'Texto para substituir',
+    replace_text: 'Substituir texto',
     dropbox_options:{
         compare: 'comparar',
         uppercase: 'para minúsculas',
@@ -17,7 +19,8 @@ export default {
         camelcase: 'para camelcase',
         capitalletter: 'para letra maiúscula',
         encode: 'codificar',
-        decode: 'decodificar'
+        decode: 'decodificar',
+        replace: 'substituir'
     },
     langs_options:{
         spanish: 'Espanhol',

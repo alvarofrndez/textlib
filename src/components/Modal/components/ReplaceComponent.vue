@@ -13,7 +13,8 @@
     const replace_text = ref('')
 
     function close(){
-        modal_s.resetData()
+        modal_s.data.text_to_replace = text_to_replace.value
+        modal_s.data.replace_text = replace_text.value
         modal_s.showing = false
         modal_s.component = ''
     }
