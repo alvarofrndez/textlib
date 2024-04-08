@@ -40,6 +40,10 @@ export const functionsStore = defineStore('functions', () => {
       value: 'decode',
       text: langs_s.actual_lang.variables.dropbox_options.decode
     },
+    {
+      value: 'replace',
+      text: langs_s.actual_lang.variables.dropbox_options.replace
+    },
   ])
 
   const selected_option = ref('')
@@ -75,6 +79,9 @@ export const functionsStore = defineStore('functions', () => {
           break
         case 'decode':
           result = decode(text)
+          break
+        case 'replace':
+          result = replace(text)
           break
       }
     }

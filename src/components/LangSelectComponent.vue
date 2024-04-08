@@ -14,7 +14,7 @@
     <li>
         <select name='lang' id='lang' @change='(e) => changeLang(e)'>
             <option v-for='lang of langs_s.langs' :value='lang.key' :selected='lang.key == langs_s.actual_lang.key ? true : false'>
-                {{ lang.text }}
+                <span>{{ lang.text }}</span>
             </option>
         </select>
     </li>
