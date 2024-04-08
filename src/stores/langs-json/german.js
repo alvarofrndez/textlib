@@ -43,6 +43,7 @@ export default {
         file_not_found: 'Datei nicht gefunden',
         copy_text: 'Text kopiert',
         copy_text_error: 'Fehler beim Kopieren des Textes',
-        empty_text: 'Der Text ist leer'
+        empty_text: 'Der Text ist leer',
+        error_replace_text: 'Es ist ein Fehler bei den Daten aufgetreten'
     }
 }
