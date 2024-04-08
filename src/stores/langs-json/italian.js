@@ -15,7 +15,9 @@ export default {
         uppercase: 'a minuscole',
         lowercase: 'a maiuscole',
         camelcase: 'a camelcase',
-        capitalletter: 'a lettera maiuscola'
+        capitalletter: 'a lettera maiuscola',
+        encode: 'codificare',
+        decode: 'decodificare'
     },
     langs_options:{
         spanish: 'Spagnolo',

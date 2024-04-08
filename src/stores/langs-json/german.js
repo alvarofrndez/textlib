@@ -15,7 +15,9 @@ export default {
         uppercase: 'in Kleinbuchstaben',
         lowercase: 'in Großbuchstaben',
         camelcase: 'in Camelcase',
-        capitalletter: 'in Großbuchstaben'
+        capitalletter: 'in Großbuchstaben',
+        encode: 'codieren',
+        decode: 'dekodieren'
     },
     langs_options:{
         spanish: 'Spanisch',
