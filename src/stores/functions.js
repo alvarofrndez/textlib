@@ -46,6 +46,14 @@ export const functionsStore = defineStore('functions', () => {
       value: 'replace',
       text: langs_s.actual_lang.variables.dropbox_options.replace
     },
+    {
+      value: 'swapcase',
+      text: langs_s.actual_lang.variables.dropbox_options.swapcase
+    },
+    {
+      value: 'count-words',
+      text: langs_s.actual_lang.variables.dropbox_options.count_words
+    },
   ])
 
   const selected_option = ref('')
@@ -84,6 +92,12 @@ export const functionsStore = defineStore('functions', () => {
           break
         case 'replace':
           result = replace(text)
+          break
+        case 'swapcase':
+          result = swapcase(text)
+          break
+        case 'count-words':
+          result = countWords(text)
           break
       }
     }
@@ -148,6 +162,36 @@ export const functionsStore = defineStore('functions', () => {
     }
 
     return result_text
+  }
+
+  function swapcase(text){
+    /**
+     * Convierte las mayúsculas en minúsculas y viceversa
+     */
+    return text.split('').map(w => w == w.toUpperCase() ? w.toLowerCase() : w.toUpperCase()).join('')
+  }
+
+  function countWords(text){
+    let result = ''
+
+    if(modal_s.data.all_words.length > 0){
+
+      for(let word of modal_s.data.all_words){
+        const escaped_word = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        
+        const regex = new RegExp(escaped_word, 'gi')
+        
+        const count = text.match(regex)
+        const total = count ? count.length : 0
+
+        result += word + ': ' + total + '\n'
+      }
+
+    }else{
+      toast_s.show(langs_s.actual_lang.variables.toast_options.error_replace_text, 'error')
+    }
+
+    return result
   }
 
   function downloadFile(content, file_name){

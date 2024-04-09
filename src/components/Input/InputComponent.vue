@@ -93,8 +93,11 @@
 
     document.addEventListener('keypress', (e) => {
         if(e.key == 'Enter'){
-            e.preventDefault()
-            execute()
+
+            if(e.target != document.getElementsByTagName('textarea')[0]){
+                e.preventDefault()
+                execute()
+            }
         }
     })
 
@@ -171,6 +174,7 @@
             @include flex(column, flex-start, space-between);
 
             h3{
+                // size
                 height: 10%;
             }
 

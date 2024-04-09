@@ -1,8 +1,8 @@
 <script setup>
     import { modalStore } from '@/stores/modal.js'
     import InfoComponent from './components/InfoComponent.vue'
-    import DownloadComponent from './components/DownloadComponent.vue'
     import ReplaceComponent from './components/ReplaceComponent.vue'
+    import CountWordsComponent from './components/CountWordsComponent.vue'
 
     // stores
     const modal_s = modalStore()
@@ -20,8 +20,8 @@
 <template>
     <section class='wrapper' @click='(e) => close(e)'>
         <InfoComponent v-if="modal_s.component == 'info'"/>
-        <DownloadComponent v-if="modal_s.component == 'download'"/>
         <ReplaceComponent v-if="modal_s.component == 'replace'"/>
+        <CountWordsComponent v-if="modal_s.component == 'count-words'"/>
     </section>
 </template>
 

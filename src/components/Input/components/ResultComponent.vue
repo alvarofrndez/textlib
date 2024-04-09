@@ -7,7 +7,7 @@
 </script>
 
 <template>
-    <span class='result'>{{ result }}</span>
+    <p class='result'>{{ result }}</p>
 </template>
 
 <style lang='scss' scoped>

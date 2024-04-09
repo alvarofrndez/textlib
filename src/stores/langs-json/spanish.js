@@ -3,6 +3,8 @@ export default {
     route_otra: 'otra',
     choose_file_name: 'Escoja el nombre del archivo',
     accept: 'Aceptar',
+    add: 'Añadir',
+    delete: 'Borrar',
     text_to_compare1: 'Texto a comparar 1',
     text_to_compare2: 'Texto a comparar 2',
     text_to_convert: 'Texto a convertir',
@@ -12,6 +14,7 @@ export default {
     placeholder_input: 'Introduce el texto...',
     text_to_replace: 'Texto a reemplazar',
     replace_text: 'Texto de reemplazo',
+    add_word_counts: 'Añadir palabra',
     dropbox_options:{
         compare: 'comparar',
         uppercase: 'a minúsculas',
@@ -21,6 +24,8 @@ export default {
         encode: 'codificar',
         decode: 'descodificar',
         replace: 'reemplazar',
+        swapcase: 'invertir',
+        count_words: 'contar palabras',
     },
     langs_options:{
         spanish: 'Español',

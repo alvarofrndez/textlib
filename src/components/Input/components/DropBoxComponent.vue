@@ -11,6 +11,9 @@
         if(e.target.value == 'replace'){
             modal_s.showing = true
             modal_s.component = 'replace'
+        }else if(e.target.value == 'count-words'){
+            modal_s.showing = true
+            modal_s.component = 'count-words'
         }
         functions_s.selected_option = e.target.value
     }
