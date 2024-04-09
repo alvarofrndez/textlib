@@ -14,8 +14,8 @@ export default {
     replace_text: 'Replace text',
     dropbox_options:{
         compare: 'compare',
-        uppercase: 'to lowercase',
-        lowercase: 'to uppercase',
+        lowercase: 'to lowercase',
+        uppercase: 'to uppercase',
         camelcase: 'to camelcase',
         capitalletter: 'to capital letter',
         encode: 'encode',

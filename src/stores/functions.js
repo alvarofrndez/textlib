@@ -66,6 +66,8 @@ export const functionsStore = defineStore('functions', () => {
       return ''
     }
 
+    console.log(selected_option.value)
+
     let result = ''
 
     if(text2 != ''){

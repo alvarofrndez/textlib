@@ -17,8 +17,8 @@ export default {
     add_word_counts: 'Añadir palabra',
     dropbox_options:{
         compare: 'comparar',
-        uppercase: 'a minúsculas',
-        lowercase: 'a mayúsculas',
+        uppercase: 'a mayúsculas',
+        lowercase: 'a minúsculas',
         camelcase: 'a camelcase',
         capitalletter: 'a capital letter',
         encode: 'codificar',
