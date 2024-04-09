@@ -38,6 +38,20 @@
     @import '@/assets/style.scss';
 
     .container{
+        // display
         @include flex(column, space-between, center, 2rem);
+
+        div{
+            // display
+            @include flex(row, center, space-between, 2rem);
+        }
+
+        button{
+            // size
+            width: 50%;
+
+            @include button();
+            align-self: center;
+        }
     }
 </style>
