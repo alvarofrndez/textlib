@@ -18,6 +18,12 @@
         modal_s.component = ''
     }
 
+    function cancel(){
+        modal_s.data = {}
+        modal_s.showing = false
+        modal_s.component = ''
+    }
+
     function addWord(){
         if(!all_words.value.includes(actual_word.value))
             all_words.value.push(actual_word.value)
@@ -44,13 +50,16 @@
         <div class='container-words'>
             <div v-for='word of all_words'> 
                 <span>{{ word }}</span>
-                <button @click='() => deleteWord(all_words.indexOf(word))'>
+                <button @click='() => deleteWord(all_words.indexOf(word))' :title='langs_s.actual_lang.variables.delete'>
                     <img src='/src/assets/images/delete.svg' :alt='langs_s.actual_lang.variables.delete'>
                 </button>
             </div>
         </div>
         
-        <button @click='close'>{{ langs_s.actual_lang.variables.accept }}</button>
+        <div class='container-buttons'>
+            <button @click='cancel'>{{ langs_s.actual_lang.variables.cancel }}</button>
+            <button @click='close'>{{ langs_s.actual_lang.variables.accept }}</button>
+        </div>
     </section>
 </template>
 
@@ -112,12 +121,22 @@
             }
         }
 
-        button{
+        .container-buttons{
             // size
-            width: 50%;
-
-            @include button();
+            width: 90%;
+            
+            // display
+            @include flex(row, center, space-between);
             align-self: center;
+
+            button{
+                // size
+                width: 40%;
+
+                @include button();
+                align-self: center;
+            }
         }
+        
     }
 </style>

@@ -171,7 +171,7 @@
             width: 25%;
             
             // display
-            @include flex(column, flex-start, space-between);
+            @include flex(column, flex-start, space-evenly);
 
             h3{
                 // size

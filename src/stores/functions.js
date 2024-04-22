@@ -175,20 +175,24 @@ export const functionsStore = defineStore('functions', () => {
 
   function countWords(text){
     let result = ''
+    
+    if(modal_s.data.all_words){
+      if(modal_s.data.all_words.length > 0){
 
-    if(modal_s.data.all_words.length > 0){
-
-      for(let word of modal_s.data.all_words){
-        const escaped_word = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-        
-        const regex = new RegExp(escaped_word, 'gi')
-        
-        const count = text.match(regex)
-        const total = count ? count.length : 0
-
-        result += word + ': ' + total + '\n'
+        for(let word of modal_s.data.all_words){
+          const escaped_word = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+          
+          const regex = new RegExp(escaped_word, 'gi')
+          
+          const count = text.match(regex)
+          const total = count ? count.length : 0
+  
+          result += word + ': ' + total + '\n'
+        }
+  
+      }else{
+        toast_s.show(langs_s.actual_lang.variables.toast_options.error_replace_text, 'error')
       }
-
     }else{
       toast_s.show(langs_s.actual_lang.variables.toast_options.error_replace_text, 'error')
     }

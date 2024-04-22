@@ -3,6 +3,7 @@ export default {
     route_otra: 'otra',
     choose_file_name: 'Escoja el nombre del archivo',
     accept: 'Aceptar',
+    cancel: 'Cancelar',
     add: 'Añadir',
     delete: 'Borrar',
     text_to_compare1: 'Texto a comparar 1',
