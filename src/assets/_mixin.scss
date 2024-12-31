@@ -46,6 +46,7 @@
     padding: .5rem;
     outline: none;
     overflow-wrap:break-word;
+    text-wrap: wrap;
 
     &::placeholder {
         color: $h-c-gray-light;

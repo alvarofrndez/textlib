@@ -14,7 +14,9 @@
     @import '@/assets/style.scss';
 
     .result{
+        // size
         min-height: 190px;
+
         @include input-styles();
     }
 </style>
