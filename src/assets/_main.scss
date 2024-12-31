@@ -4,7 +4,7 @@ body{
     #app{
         // size
         width: 100vw;
-        height: 100vh;
+        min-height: 100vh;
 
         // display
         @include flex(column, center, space-between);
@@ -54,6 +54,11 @@ body{
 
             // decoration
             list-style: none;
+        }
+
+        pre{
+            // margin
+            margin: 0;
         }
     }
 }

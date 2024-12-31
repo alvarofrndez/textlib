@@ -14,6 +14,9 @@
     .main{
         // size
         width: 90%;
-        height: 70%;
+
+        @media (max-width: 1000px) {
+            width: 100%;
+        }
     }
 </style>

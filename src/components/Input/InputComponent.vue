@@ -158,24 +158,22 @@
     @import '@/assets/style.scss';
 
     .container-inputs{
-        // size
-        height: 100%;
-        width: 100%;
-
         // display
-        @include flex(row, center, space-evenly);
+        @include flex(row, flex-start, space-evenly);
+
+        @media (max-width: 1100px){
+            @include flex(column, center, center, 3rem);
+        }
 
         .container-input{
             // size
-            height: 100%;
             width: 25%;
             
             // display
-            @include flex(column, flex-start, space-evenly);
+            @include flex(column, flex-start, space-evenly, .5rem);
 
-            h3{
-                // size
-                height: 10%;
+            @media (max-width: 1100px){
+                width: 50%;
             }
 
             textarea{
@@ -222,7 +220,6 @@
 
             .actions{
                 // size
-                height: 10%;
 
                 // display
                 align-self: flex-end;
@@ -252,11 +249,9 @@
         }
 
         .container-dropbox{
-            // size
-            height: 50%;
-
             // display
-            @include flex(column, center, space-between);
+            @include flex(column, center, space-between, 1rem);
+            align-self: center;
 
             button{
                 // size

@@ -13,13 +13,10 @@
             </div>
             <nav class='container-nav'>
                 <ul>
-                    <li class='hover'>{{ langs_s.actual_lang.variables.route_information }}</li>
-                    <li class='hover'>{{ langs_s.actual_lang.variables.route_otra }}</li>
+                    <!-- <li class='hover'>{{ langs_s.actual_lang.variables.route_information }}</li>
+                    <li class='hover'>{{ langs_s.actual_lang.variables.route_otra }}</li> -->
                     <LangSelectComponent/>
                 </ul>
-                <div class='container-info'>
-                    <img src='/src/assets/images/logo.png' alt='info'>
-                </div>
             </nav>
         </div>
     </header>
@@ -31,7 +28,7 @@
     header{
         // size
         width: 100%;
-        height: 7.5%;
+        height: 7.5vh;
 
         // display
         @include flex(row, flex-end);

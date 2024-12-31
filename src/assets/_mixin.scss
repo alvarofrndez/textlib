@@ -38,7 +38,6 @@
 @mixin input-styles(){
     // size
     width: calc(100% - .5rem * 2);
-    height: 70%;
 
     // decoration
     background-color: $h-c-white;

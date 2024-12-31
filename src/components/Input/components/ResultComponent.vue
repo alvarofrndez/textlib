@@ -7,13 +7,14 @@
 </script>
 
 <template>
-    <pre class='result'>{{ result }}</pre>
+    <pre class='result' >{{ result }}</pre>
 </template>
 
 <style lang='scss' scoped>
     @import '@/assets/style.scss';
 
     .result{
+        min-height: 190px;
         @include input-styles();
     }
 </style>
