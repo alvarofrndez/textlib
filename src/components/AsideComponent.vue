@@ -1,5 +1,4 @@
 <script setup>
-
     function close(e){
         console.log(e.target)
         e.target.parentNode.parentNode.style.visibility = 'hidden'
@@ -8,10 +7,10 @@
 
 <template>
     <aside>
-        <div>
+        <!-- <div>
             <img @click='(e) => close(e)' src='/src/assets/images/close.svg' alt=''>
         </div>
-        <img src='' alt=''>
+        <img src='' alt=''> -->
     </aside>
 </template>
 
@@ -19,7 +18,7 @@
     @import '@/assets/style.scss';
 
     aside{
-        border: 1px solid $h-c-gray;
+        // border: 1px solid $h-c-gray;
         // size
         width: 50%;
         height: 10%;
